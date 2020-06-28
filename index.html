@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/dc14c6aabe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap.css"/>
+    <script src="jquery.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  </head>
+  <body>
+    <div class="jumbotron">
+    <h1 class="display-4" id="largeWords">Prime Staff Budget</h1>
+    
+    </div>
+<div class="container">
+    <p class="lead" id="smallWords">Enter in new employee information</p>
+
+    <div class="form-group">
+    <form class="formBox">
+        <div class="form-group">
+            <label for="firstNameInput">First Name</label>
+      <input type="text" class="form-control" id="firstNameInput" />
+      <label for="lastNameInput">Last Name</label>
+      <input type="text" class="form-control" id="lastNameInput" />
+      <label for="idNumberInput">Employee ID Number</label>
+      <input type="text" class="form-control" id="idNumberInput" />
+      <label for="jobTitleInput">Job Title</label>
+      <input type="text" class="form-control"id="jobTitleInput" />
+      <label for="annualSalaryInput">Annual Salary</label>
+      <input type="text" class="form-control" id="annualSalaryInput" />
+    </div>
+</div>
+    <div class="add button">
+      <button id="davidsButton" class="btn btn-lg btn-block">Click to Add</button>
+      </div>
+    </div>
+    </form>
+    <div class="container">
+    <div class='infoOutput'>
+    <table class="table table-striped table-dark" id ="table">
+        <thead class="thead-light">
+      <tr>
+        <th scope="col" class="columns">First Name</th>
+        <th scope="col" class="columns">Last Name</th>
+        <th scope="col" class="columns">Employee ID</th>
+        <th scope="col" class="columns">Job Title</th>
+        <th scope="col" class="columns">Annual Salary</th>
+      </tr>
+    </thead>
+    <tbody class="employeeInfo">
+        
+
+   
+            
+</tbody>
+    </table>
+</div>
+    <p class="totalSalaryOutput">
+    </p>
+  </body>
+</html>
