@@ -1,12 +1,17 @@
 $(document).ready(readyNow);
 
+// uses event listener to run addEmployee() and removeEmployee()
 function readyNow() {
   $('#davidsButton').on('click', addEmployee);
   $('.js-table-body').on('click', '#removeBtn', removeEmployee);
 }
 
+// empty array
 let employeeObject = [];
 
+// function to push newly created newEmployee object into empty array employeeObject
+// checks values and stores in object, then empties values
+// runs the displayEmployee() to show data on dom, totalSalary() calculates monthly cost and puts on dom
 function addEmployee() {
   event.preventDefault();
   alert('Add employee?');
@@ -29,13 +34,14 @@ function addEmployee() {
   console.table(employeeObject);
 }
 
+// appends data to created html div then is displayed on the dom
 function displayEmployee() {
   let el = $('.js-table-body');
   el.empty();
   for (employees of employeeObject) {
     el.append(
       `<tr><td>
-        e${employees.firstName} 
+        ${employees.firstName} 
         </td> 
         <td>
         ${employees.lastName}
@@ -57,6 +63,7 @@ function displayEmployee() {
   }
 }
 
+// calculates annual salary/12 to determine monthly costs and displays on dom
 function totalSalary() {
   let maxMonthlyBudget = 20000;
   let totalSalary = 0;
@@ -78,20 +85,8 @@ function totalSalary() {
   }
 }
 
+// removes row from table, ran out of time on stretch goal was really pushing but.....
 function removeEmployee() {
-  $(this).parent().parent().fadeOut();
-  alert('Remove employee?');
-  console.log('Employee removed');
+  $(this).parent().parent().remove();
+  console.log($(this).parent().parent().text());
 }
-
-// function deleteEmp() {
-//   $(this).parent().fadeOut();
-//   console.log($(this).parent().text());
-//   let target = $(this).parent()[0].cells[1].textContent;
-//   for (let employees of employeeObject) {
-//     if (employees.idNumber == target) {
-//       let toDelete = employees.indexOf(employees);
-//       employees.splice(toDelete, 1);
-//     }
-//   }
-// } // end deleteEmp
