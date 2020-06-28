@@ -2,7 +2,7 @@ $(document).ready(readyNow);
 
 function readyNow() {
   $('#davidsButton').on('click', addEmployee);
-  $('.table').on('click', deleteEmp);
+  $('.js-table-body').on('click', '#removeBtn', removeEmployee);
 }
 
 let employeeObject = [];
@@ -29,11 +29,11 @@ function addEmployee() {
 }
 
 function displayEmployee() {
-  let el = $('.employeeInfo');
+  let el = $('.js-table-body');
   el.empty();
   for (employees of employeeObject) {
     el.append(
-      `<tr class="employeeRow">` +
+      `<tr>` +
         `<td>` +
         employees.firstName +
         `</td>` +
@@ -49,9 +49,10 @@ function displayEmployee() {
         `<td>` +
         employees.annualSalary +
         `</td>` +
-        `<td><button type="button" class="btn btn-danger"class="removeButton">X</button>
+        `<td><button type="button" id="removeBtn" class="btn btn-danger">X</button>
         </td>
-        </tr>`
+        </tr>
+       `
     );
   }
 }
@@ -76,20 +77,19 @@ function totalSalary() {
   }
 }
 
-// function removeEmployee() {
-//   $(this).remove();
-//   let removedEmployee = $('.removeButton').text(employeeObject);
-//   console.log(removedEmployee);
-// }
+function removeEmployee() {
+  $(this).parent().parent().fadeOut();
+  console.log('fired');
+}
 
-function deleteEmp() {
-  $(this).parent().fadeOut();
-  console.log($(this).parent().text());
-  let target = $(this).parent()[0].cells[1].textContent;
-  for (let employees of employeeObject) {
-    if (employees.id == target) {
-      let toDelete = employees.indexOf(employees);
-      employees.splice(toDelete, 1);
-    }
-  }
-} // end deleteEmp
+// function deleteEmp() {
+//   $(this).parent().fadeOut();
+//   console.log($(this).parent().text());
+//   let target = $(this).parent()[0].cells[1].textContent;
+//   for (let employees of employeeObject) {
+//     if (employees.idNumber == target) {
+//       let toDelete = employees.indexOf(employees);
+//       employees.splice(toDelete, 1);
+//     }
+//   }
+// } // end deleteEmp
