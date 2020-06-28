@@ -9,7 +9,7 @@ let employeeObject = [];
 
 function addEmployee() {
   event.preventDefault();
-  alert('You have added a new employee.');
+  alert('Add employee?');
   let newEmployee = {
     firstName: $('#firstNameInput').val(),
     lastName: $('#lastNameInput').val(),
@@ -25,6 +25,7 @@ function addEmployee() {
   $('#annualSalaryInput').val('');
   displayEmployee();
   totalSalary();
+  console.log('Employee added');
   console.table(employeeObject);
 }
 
@@ -33,23 +34,22 @@ function displayEmployee() {
   el.empty();
   for (employees of employeeObject) {
     el.append(
-      `<tr>` +
-        `<td>` +
-        employees.firstName +
-        `</td>` +
-        `<td>` +
-        employees.lastName +
-        `</td>` +
-        `<td>` +
-        employees.idNumber +
-        `</td>` +
-        `<td>` +
-        employees.jobTitle +
-        `</td>` +
-        `<td>` +
-        employees.annualSalary +
-        `</td>` +
-        `<td><button type="button" id="removeBtn" class="btn btn-danger">X</button>
+      `<tr><td>
+        e${employees.firstName} 
+        </td> 
+        <td>
+        ${employees.lastName}
+        </td>
+        <td>
+        ${employees.idNumber}
+        </td>
+        <td>
+        ${employees.jobTitle}
+        </td>
+        <td>
+        ${employees.annualSalary} 
+        </td>
+        <td><button type="button" id="removeBtn" class="btn btn-danger">X</button>
         </td>
         </tr>
        `
@@ -72,14 +72,16 @@ function totalSalary() {
     `<p class="monthlyBudget"> Monthly Costs: $` + monthlyCosts + `</p>`
   );
   if (monthlyCosts > maxMonthlyBudget) {
-    console.log('too much!!!');
+    console.log('WOW BRO OVER BUDGET!!!');
+    alert('Monthly costs have exceeded budget!');
     $('.totalSalaryOutput').addClass('redClass');
   }
 }
 
 function removeEmployee() {
   $(this).parent().parent().fadeOut();
-  console.log('fired');
+  alert('Remove employee?');
+  console.log('Employee removed');
 }
 
 // function deleteEmp() {
